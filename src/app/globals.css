@@ -1,26 +1,120 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------
+   GoldenCrate — design tokens extracted from the reference design.
+   All numeric values are expressed against a 1200px reference
+   viewport, which is the scale the reference composition was
+   measured at.
+   --------------------------------------------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --gc-bg: #f4f4f4;
+  --gc-ink: #050516;
+  --gc-card: #e2e2e2;
+  --gc-white: #ffffff;
+  --gc-muted: #78777d;
+  --gc-muted-soft: #939298;
+  --gc-line: #eaeaea;
+  --gc-footer: #b9b9b9;
+
+  --gc-container: 1200px;
+  --gc-gutter: 25px;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--gc-bg);
+  --color-ink: var(--gc-ink);
+  --color-card: var(--gc-card);
+  --color-muted: var(--gc-muted);
+  --color-muted-soft: var(--gc-muted-soft);
+  --color-line: var(--gc-line);
+  --color-footerbg: var(--gc-footer);
+  --font-sans: var(--font-inter), "Helvetica Now Display", "Neue Haas Grotesk Display Pro",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--gc-bg);
+    color: var(--gc-ink);
+    font-family: "Helvetica Now Display", "Neue Haas Grotesk Display Pro",
+      "Helvetica Neue", Helvetica, var(--font-inter), Arial, sans-serif;
+    font-synthesis-weight: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.018em;
+  }
+
+  ::selection {
+    background: var(--gc-ink);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--gc-ink);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .on-photo :focus-visible {
+    outline-color: #fff;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  /* Page container — 1150px of content inside 25px gutters. */
+  .gc-container {
+    width: 100%;
+    max-width: var(--gc-container);
+    margin-inline: auto;
+    padding-inline: var(--gc-gutter);
+  }
+
+  /* Display headings: tight leading + slightly negative tracking,
+     exactly as measured off the reference (52px / 50px). */
+  .gc-display {
+    font-weight: 500;
+    line-height: 0.96;
+    letter-spacing: -0.038em;
+  }
+
+  .gc-statement {
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.024em;
+  }
+
+  .gc-hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .gc-hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Frosted plate used behind the hero feature list — same glass recipe as
+     the header bar, with a light dark tint so white copy stays legible. */
+  .gc-frost {
+    background: rgba(10, 16, 10, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(48px) saturate(108%);
+    -webkit-backdrop-filter: blur(48px) saturate(108%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
