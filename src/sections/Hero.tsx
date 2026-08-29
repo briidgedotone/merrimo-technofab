@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import PillButton from "@/components/ui/PillButton";
 import { heroIcons } from "@/components/ui/Icons";
 import { heroFeatures } from "@/data/site";
+import { asset } from "@/lib/asset";
 
 export default function Hero() {
   return (
@@ -13,7 +14,7 @@ export default function Hero() {
           composition never collapses on short viewports. */}
       <div className="relative aspect-[5/3] min-h-[560px] w-full sm:min-h-0">
         <Image
-          src="/images/hero.jpg"
+          src={asset("/images/hero.jpg")}
           alt="Structural steel frame and formwork on an industrial construction site."
           fill
           priority

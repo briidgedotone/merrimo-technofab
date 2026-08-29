@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CarouselNav from "@/components/ui/CarouselNav";
 import { sectors } from "@/data/site";
+import { asset } from "@/lib/asset";
 
 export default function Sectors() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -77,7 +78,7 @@ export default function Sectors() {
               style={{ width: "min(371px, 82vw)" }}
             >
               <Image
-                src={p.image}
+                src={asset(p.image)}
                 alt={p.alt}
                 fill
                 sizes="(max-width: 900px) 82vw, 371px"

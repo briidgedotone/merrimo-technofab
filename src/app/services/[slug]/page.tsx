@@ -8,6 +8,7 @@ import PillButton from "@/components/ui/PillButton";
 import Footer from "@/components/Footer";
 import { services, serviceBySlug } from "@/data/services";
 import { site } from "@/data/site";
+import { asset } from "@/lib/asset";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       title: `${service.title} — ${site.legalName}`,
       description: service.summary,
       url: `${site.url}/services/${service.slug}`,
-      images: [{ url: service.image }],
+      images: [{ url: `${site.url}${service.image}` }],
     },
   };
 }
@@ -81,7 +82,7 @@ export default async function ServicePage({ params }: Params) {
         <div className="gc-container -mt-[48px]">
           <div className="relative aspect-[1200/470] w-full overflow-hidden rounded-[14px]">
             <Image
-              src={service.image}
+              src={asset(service.image)}
               alt={service.alt}
               fill
               sizes="(max-width: 1200px) 100vw, 1150px"
