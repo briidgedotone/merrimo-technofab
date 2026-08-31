@@ -1,9 +1,8 @@
-import Image from "next/image";
 import Navbar from "@/components/Navbar";
+import HeroBackground from "@/components/HeroBackground";
 import PillButton from "@/components/ui/PillButton";
 import { heroIcons } from "@/components/ui/Icons";
 import { heroFeatures } from "@/data/site";
-import { asset } from "@/lib/asset";
 
 export default function Hero() {
   return (
@@ -13,22 +12,22 @@ export default function Hero() {
       {/* 1200 × 720 in the reference — a 5:3 plate, floored so the
           composition never collapses on short viewports. */}
       <div className="relative aspect-[5/3] min-h-[560px] w-full sm:min-h-0">
-        <Image
-          src={asset("/images/hero.jpg")}
-          alt="Structural steel frame and formwork on an industrial construction site."
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[52%_center]"
-        />
-        {/* legibility scrim — top-left for the headline, bottom for the CTA */}
+        <HeroBackground alt="Aerial view of a steel fabrication yard: gantry cranes running over stacked structural sections and fabrication bays." />
+        {/* Legibility scrims. The footage is busier and higher-contrast than a
+            still, so this is a flat wash plus directional gradients for the
+            headline (top-left) and the statement and CTA (bottom-right). */}
+        <div aria-hidden className="absolute inset-0 bg-[rgba(8,12,18,0.28)]" />
         <div
           aria-hidden
-          className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,18,26,0.34)_0%,rgba(10,18,26,0.10)_26%,rgba(10,18,26,0)_46%)]"
+          className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,12,18,0.42)_0%,rgba(8,12,18,0.16)_28%,rgba(8,12,18,0)_50%)]"
         />
         <div
           aria-hidden
-          className="absolute inset-0 bg-[linear-gradient(100deg,rgba(8,14,10,0.30)_0%,rgba(8,14,10,0.06)_42%,rgba(8,14,10,0)_62%)]"
+          className="absolute inset-0 bg-[linear-gradient(100deg,rgba(8,12,18,0.40)_0%,rgba(8,12,18,0.10)_46%,rgba(8,12,18,0)_66%)]"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-[linear-gradient(0deg,rgba(8,12,18,0.46)_0%,rgba(8,12,18,0.14)_26%,rgba(8,12,18,0)_48%)]"
         />
 
         <div className="absolute inset-0">
