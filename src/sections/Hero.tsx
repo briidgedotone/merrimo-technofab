@@ -68,8 +68,10 @@ export default function Hero() {
               </ul>
             </div>
 
-            {/* Supporting statement + CTA, right half. */}
-            <div className="absolute bottom-[5%] right-[25px] hidden w-[48%] max-w-[515px] lg:block">
+            {/* Supporting statement + CTA. Anchored to the plate rather than
+                the 1200px container, so it sits against the right edge of the
+                screen instead of stopping at the container cap. */}
+            <div className="absolute bottom-[5%] right-[calc(50px-((100vw-min(100vw,1200px))/2))] hidden w-[48%] max-w-[515px] lg:block">
               <p className="text-left text-[clamp(18px,2.42vw,29px)] font-medium leading-[1.14] tracking-[-0.02em] text-white">
                 Your trusted partner for complete industrial engineering
                 solutions.
