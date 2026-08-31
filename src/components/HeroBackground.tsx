@@ -6,10 +6,13 @@ import { asset } from "@/lib/asset";
 /**
  * Looping site footage behind the hero.
  *
- * Source: Pexels (free licence, no attribution required). The clip is a 6.4s
- * loop with the tail cross-dissolved over the head, so it repeats without a
- * visible cut. Under prefers-reduced-motion we render the poster frame instead
- * of the video, which also avoids the download entirely.
+ * A 11.5s montage of five clips (Pexels, free licence) following the service
+ * story: site development, fabrication yard, PEB frame, erection, completed
+ * facilities. Clips cross-fade into each other and the tail cross-dissolves
+ * over the head, so the whole thing loops without a visible cut.
+ *
+ * Under prefers-reduced-motion we render the poster frame instead of the
+ * video, which also avoids the download entirely.
  */
 export default function HeroBackground({ alt }: { alt: string }) {
   const reduced = useReducedMotion();

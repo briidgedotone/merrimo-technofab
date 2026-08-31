@@ -12,7 +12,7 @@ export default function Hero() {
       {/* 1200 × 720 in the reference — a 5:3 plate, floored so the
           composition never collapses on short viewports. */}
       <div className="relative aspect-[5/3] min-h-[560px] w-full sm:min-h-0">
-        <HeroBackground alt="Aerial view of a steel fabrication yard: gantry cranes running over stacked structural sections and fabrication bays." />
+        <HeroBackground alt="Footage of Merrimo Technofab's work: industrial site development, a steel fabrication yard, a pre-engineered building frame, structural erection and completed industrial facilities." />
         {/* Legibility scrims. The footage is busier and higher-contrast than a
             still, so this is a flat wash plus directional gradients for the
             headline (top-left) and the statement and CTA (bottom-right). */}
