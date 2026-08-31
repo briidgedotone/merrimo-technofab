@@ -2,17 +2,19 @@ import QuoteForm from "@/components/QuoteForm";
 
 export default function Enquiry() {
   return (
-    <section id="enquiry" className="relative isolate mt-[129px] w-full overflow-hidden on-photo">
-      <div className="relative aspect-[1200/679] min-h-[520px] w-full bg-ink sm:min-h-0">
-        <div className="absolute inset-0 overflow-y-auto">
-          <div className="gc-container flex min-h-full flex-col items-center pb-[60px] pt-[79px] lg:justify-start">
-            <h2 className="text-center text-[clamp(26px,3.34vw,40px)] font-medium leading-[1.1] tracking-[-0.038em] text-white">
-              Request a Project Quote
-            </h2>
-            <div className="mt-[115px]">
-              <QuoteForm source="homepage" />
-            </div>
-          </div>
+    // Sized by its content — the form panel is taller than the fixed-ratio
+    // plate this section used to use, and was being clipped by it.
+    <section id="enquiry" className="mt-[129px] w-full bg-ink py-[100px] on-photo">
+      <div className="gc-container flex flex-col items-center">
+        <h2 className="text-center text-[clamp(26px,3.34vw,40px)] font-medium leading-[1.1] tracking-[-0.038em] text-white">
+          Request a Project Quote
+        </h2>
+        <p className="mt-[18px] max-w-[520px] text-center text-[17px] leading-[1.45] text-white/60">
+          Tell us the scope, the site and how to reach you. We review drawings and site conditions
+          before quoting.
+        </p>
+        <div className="mt-[48px]">
+          <QuoteForm source="homepage" />
         </div>
       </div>
     </section>

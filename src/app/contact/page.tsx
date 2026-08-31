@@ -53,75 +53,62 @@ export default function Contact() {
           </div>
         </PageHero>
 
-        {/* Contact details */}
-        <section className="gc-container pt-[100px]">
-          <div className="max-w-[720px]">
-            <h2 className="text-[clamp(21px,2.2vw,26px)] font-medium leading-[1.15] tracking-[-0.035em]">
-              Company details
-            </h2>
-            <dl className="mt-[24px] border-t border-[#dcdcdc] text-[18px] leading-[1.3]">
-              <div className="flex flex-col gap-[6px] border-b border-[#dcdcdc] py-[18px] sm:flex-row sm:gap-[24px]">
-                <dt className="w-[190px] shrink-0 text-muted">Registered name</dt>
-                <dd>{site.legalName}</dd>
-              </div>
-              <div className="flex flex-col gap-[6px] border-b border-[#dcdcdc] py-[18px] sm:flex-row sm:gap-[24px]">
-                <dt className="w-[190px] shrink-0 text-muted">Office address</dt>
-                <dd className="text-muted-soft">
-                  {site.address.street}
-                  <br />
-                  {site.address.city}
-                </dd>
-              </div>
-              <div className="flex flex-col gap-[6px] border-b border-[#dcdcdc] py-[18px] sm:flex-row sm:gap-[24px]">
-                <dt className="w-[190px] shrink-0 text-muted">Phone</dt>
-                <dd className="text-muted-soft">{site.phone}</dd>
-              </div>
-              <div className="flex flex-col gap-[6px] border-b border-[#dcdcdc] py-[18px] sm:flex-row sm:gap-[24px]">
-                <dt className="w-[190px] shrink-0 text-muted">Email</dt>
-                <dd className="text-muted-soft">{site.email}</dd>
-              </div>
-            </dl>
-
-            {/* Honest placeholder rather than a fabricated address or map. */}
-            <div className="mt-[30px] border-l-2 border-[#cfcfcf] pl-[24px]">
-              <p className="text-[17px] leading-[1.45] text-muted">
-                Contact details are being confirmed. Once supplied we will publish the office
-                address, phone numbers, enquiry email and a location map here:
-              </p>
-              <ul className="mt-[14px] flex flex-wrap gap-[8px]">
-                {pending.map((item) => (
-                  <li
-                    key={item}
-                    className="rounded-full border border-[#cfcfcf] px-[14px] py-[6px] text-[14px] text-muted-soft"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* Enquiry form */}
-        <section className="mt-[110px] bg-ink py-[100px] text-white on-photo">
-          <div className="gc-container grid grid-cols-1 gap-x-[19px] gap-y-[54px] lg:grid-cols-[1fr_1fr]">
+        {/* Details on the left, enquiry form alongside on the right. */}
+        <section className="gc-container py-[100px]">
+          <div className="grid grid-cols-1 items-start gap-x-[19px] gap-y-[64px] lg:grid-cols-[1fr_560px]">
             <div>
-              <h2 className="gc-display max-w-[460px] text-[clamp(28px,3.34vw,40px)]">
-                Send us an enquiry
+              <h2 className="text-[clamp(21px,2.2vw,26px)] font-medium leading-[1.15] tracking-[-0.035em]">
+                Company details
               </h2>
-              <p className="mt-[24px] max-w-[460px] text-[18px] leading-[1.42] text-white/70">
-                Include the scope, the site and how to reach you. Attach drawings or a tender pack
-                when you have them — the more detail, the tighter the quote.
-              </p>
+              <dl className="mt-[24px] max-w-[560px] border-t border-[#dcdcdc] text-[18px] leading-[1.3]">
+                <div className="flex flex-col gap-[6px] border-b border-[#dcdcdc] py-[18px] sm:flex-row sm:gap-[24px]">
+                  <dt className="w-[170px] shrink-0 text-muted">Registered name</dt>
+                  <dd>{site.legalName}</dd>
+                </div>
+                <div className="flex flex-col gap-[6px] border-b border-[#dcdcdc] py-[18px] sm:flex-row sm:gap-[24px]">
+                  <dt className="w-[170px] shrink-0 text-muted">Office address</dt>
+                  <dd className="text-muted-soft">
+                    {site.address.street}
+                    <br />
+                    {site.address.city}
+                  </dd>
+                </div>
+                <div className="flex flex-col gap-[6px] border-b border-[#dcdcdc] py-[18px] sm:flex-row sm:gap-[24px]">
+                  <dt className="w-[170px] shrink-0 text-muted">Phone</dt>
+                  <dd className="text-muted-soft">{site.phone}</dd>
+                </div>
+                <div className="flex flex-col gap-[6px] border-b border-[#dcdcdc] py-[18px] sm:flex-row sm:gap-[24px]">
+                  <dt className="w-[170px] shrink-0 text-muted">Email</dt>
+                  <dd className="text-muted-soft">{site.email}</dd>
+                </div>
+              </dl>
 
-              <div className="mt-[40px] max-w-[460px]">
-                <h3 className="text-[16px] text-white/60">Or jump straight to a service</h3>
-                <ul className="mt-[16px] flex flex-wrap gap-[10px]">
+              {/* Honest placeholder rather than a fabricated address or map. */}
+              <div className="mt-[30px] max-w-[560px] border-l-2 border-[#cfcfcf] pl-[24px]">
+                <p className="text-[17px] leading-[1.45] text-muted">
+                  Contact details are being confirmed. Once supplied we will publish the office
+                  address, phone numbers, enquiry email and a location map here:
+                </p>
+                <ul className="mt-[14px] flex flex-wrap gap-[8px]">
+                  {pending.map((item) => (
+                    <li
+                      key={item}
+                      className="rounded-full border border-[#cfcfcf] px-[14px] py-[6px] text-[14px] text-muted-soft"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mt-[40px] max-w-[560px]">
+                <h3 className="text-[16px] text-muted">Or jump straight to a service</h3>
+                <ul className="mt-[14px] flex flex-wrap gap-[8px]">
                   {services.map((s) => (
                     <li key={s.slug}>
                       <Link
                         href={`/services/${s.slug}`}
-                        className="inline-flex rounded-full border border-white/25 px-[16px] py-[8px] text-[14px] text-white/80 transition-colors hover:border-white hover:text-white"
+                        className="inline-flex rounded-full border border-[#cfcfcf] px-[14px] py-[6px] text-[14px] text-muted-soft transition-colors hover:border-ink hover:text-ink"
                       >
                         {s.navTitle}
                       </Link>
@@ -131,11 +118,21 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="lg:justify-self-end">
-              <QuoteForm source="contact" />
+            <div className="lg:sticky lg:top-[40px]">
+              <h2 className="text-[clamp(21px,2.2vw,26px)] font-medium leading-[1.15] tracking-[-0.035em]">
+                Send us an enquiry
+              </h2>
+              <p className="mt-[12px] max-w-[520px] text-[17px] leading-[1.45] text-muted-soft">
+                Include the scope, the site and how to reach you — the more detail, the tighter the
+                quote.
+              </p>
+              <div className="mt-[24px]">
+                <QuoteForm source="contact" />
+              </div>
             </div>
           </div>
         </section>
+
       </main>
       <Footer />
     </>

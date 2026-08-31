@@ -61,7 +61,7 @@ export default function QuoteForm({ source }: { source: string }) {
   return (
     <form
       onSubmit={onSubmit}
-      className="w-full max-w-[520px] rounded-[20px] border border-white/12 bg-white/[0.03] p-[26px] sm:p-[30px]"
+      className="w-full max-w-[560px] rounded-[20px] border border-white/12 bg-[#101021] p-[26px] shadow-[0_24px_60px_-30px_rgba(0,0,0,0.6)] sm:p-[30px]"
     >
       <p className="text-[14px] text-white/50">
         Fields marked <span aria-hidden>*</span> are required.
