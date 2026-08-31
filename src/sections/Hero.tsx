@@ -34,7 +34,7 @@ export default function Hero() {
         <div className="absolute inset-0">
           <div className="gc-container relative flex h-full flex-col">
             {/* Headline — sits at 27% of the plate height in the reference. */}
-            <h1 className="gc-display absolute top-[27%] left-[25px] right-[25px] max-w-[760px] text-[clamp(34px,4.34vw,52px)] text-white">
+            <h1 className="gc-display absolute top-[34%] left-[25px] right-[25px] max-w-[760px] text-[clamp(34px,4.34vw,52px)] text-white">
               <span className="block">One Company.</span>
               <span className="block">Multiple Engineering Solutions.</span>
             </h1>
@@ -63,10 +63,10 @@ export default function Hero() {
 
             {/* Supporting statement + CTA, right half. */}
             <div className="absolute bottom-[5%] right-[25px] hidden w-[48%] max-w-[515px] lg:block">
-              <p className="text-center text-[clamp(18px,2.42vw,29px)] font-medium leading-[1.14] tracking-[-0.02em] text-white">
+              <p className="text-left text-[clamp(18px,2.42vw,29px)] font-medium leading-[1.14] tracking-[-0.02em] text-white">
                 Your trusted partner for complete industrial engineering solutions.
               </p>
-              <div className="mt-[24px] flex justify-end">
+              <div className="mt-[24px] flex justify-start">
                 <PillButton href="#enquiry">Request a Quote</PillButton>
               </div>
             </div>
