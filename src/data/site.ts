@@ -35,7 +35,7 @@ export const site = {
     { label: "Sectors", href: "/#sectors" },
     { label: "Request a quote", href: "/request-a-quote" },
     { label: "FAQ", href: "/#faq" },
-    { label: "Contacts", href: "/#contacts" },
+    { label: "Contact", href: "/contact" },
   ],
 } as const;
 
