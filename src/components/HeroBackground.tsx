@@ -1,6 +1,7 @@
 "use client";
 
 import { useReducedMotion } from "motion/react";
+import { useEffect, useRef } from "react";
 import { asset } from "@/lib/asset";
 
 /**
@@ -16,6 +17,34 @@ import { asset } from "@/lib/asset";
  */
 export default function HeroBackground({ alt }: { alt: string }) {
   const reduced = useReducedMotion();
+  const video = useRef<HTMLVideoElement>(null);
+
+  // Some browsers refuse autoplay regardless of `muted` — power-saving modes,
+  // data-saver, and stricter autoplay settings all do it. The `autoPlay`
+  // attribute alone then leaves a frozen poster, so ask explicitly, and ask
+  // again on the first interaction, which lifts the restriction.
+  useEffect(() => {
+    const el = video.current;
+    if (!el || reduced) return;
+
+    const tryPlay = () => {
+      if (el.paused) void el.play().catch(() => {});
+    };
+    tryPlay();
+
+    const opts = { passive: true } as const;
+    document.addEventListener("pointerdown", tryPlay, opts);
+    document.addEventListener("keydown", tryPlay, opts);
+    document.addEventListener("scroll", tryPlay, opts);
+    document.addEventListener("visibilitychange", tryPlay);
+
+    return () => {
+      document.removeEventListener("pointerdown", tryPlay);
+      document.removeEventListener("keydown", tryPlay);
+      document.removeEventListener("scroll", tryPlay);
+      document.removeEventListener("visibilitychange", tryPlay);
+    };
+  }, [reduced]);
 
   if (reduced) {
     return (
@@ -30,11 +59,12 @@ export default function HeroBackground({ alt }: { alt: string }) {
 
   return (
     <video
+      ref={video}
       autoPlay
       muted
       loop
       playsInline
-      preload="metadata"
+      preload="auto"
       poster={asset("/video/hero-poster.jpg")}
       aria-label={alt}
       className="absolute inset-0 h-full w-full object-cover object-[52%_center]"
