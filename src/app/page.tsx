@@ -21,7 +21,15 @@ const jsonLd = {
       alternateName: site.name,
       url: site.url,
       description: site.description,
-      // TODO(client): add email, telephone and postal address once confirmed.
+      telephone: site.phone,
+      vatID: site.gstin,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Shop 7, White Orchid, Gaur City 2, Sector 16C",
+        addressLocality: "Greater Noida West, Gautam Buddha Nagar",
+        addressRegion: "Uttar Pradesh",
+        addressCountry: "IN",
+      },
     },
     {
       "@type": "FAQPage",

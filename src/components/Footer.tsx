@@ -25,11 +25,24 @@ export default function Footer() {
                   {site.address.street}
                   <br />
                   {site.address.city}
+                  <br />
+                  {site.address.region}
                 </dd>
               </div>
               <div>
                 <dt className="text-white">Phone:</dt>
-                <dd className="mt-[8px] text-white/75">{site.phone}</dd>
+                <dd className="mt-[8px]">
+                  <a
+                    href={`tel:${site.phoneHref}`}
+                    className="text-white/75 transition-colors hover:text-white"
+                  >
+                    {site.phone}
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt className="text-white">GSTIN:</dt>
+                <dd className="mt-[8px] text-white/75">{site.gstin}</dd>
               </div>
               <div>
                 <dt className="text-white">Email:</dt>

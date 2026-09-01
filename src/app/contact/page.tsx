@@ -17,12 +17,7 @@ export const metadata: Metadata = {
 
 
 // TODO(client): confirm these before launch — brief section 7, open items.
-const pending = [
-  "Registered office address",
-  "Phone number(s)",
-  "Enquiry email address",
-  "Service locations / states covered",
-];
+const pending = ["Enquiry email address", "Service locations / states covered"];
 
 export default function Contact() {
   const jsonLd = {
@@ -30,7 +25,20 @@ export default function Contact() {
     "@type": "ContactPage",
     name: `Contact ${site.legalName}`,
     url: `${site.url}/contact`,
-    about: { "@type": "Organization", name: site.legalName, url: site.url },
+    about: {
+      "@type": "Organization",
+      name: site.legalName,
+      url: site.url,
+      telephone: site.phone,
+      vatID: site.gstin,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Shop 7, White Orchid, Gaur City 2, Sector 16C",
+        addressLocality: "Greater Noida West, Gautam Buddha Nagar",
+        addressRegion: "Uttar Pradesh",
+        addressCountry: "IN",
+      },
+    },
   };
 
   return (
@@ -67,15 +75,25 @@ export default function Contact() {
                 </div>
                 <div className="flex flex-col gap-[6px] border-b border-[#dcdcdc] py-[18px] sm:flex-row sm:gap-[24px]">
                   <dt className="w-[170px] shrink-0 text-muted">Office address</dt>
-                  <dd className="text-muted-soft">
+                  <dd>
                     {site.address.street}
                     <br />
                     {site.address.city}
+                    <br />
+                    {site.address.region}
                   </dd>
                 </div>
                 <div className="flex flex-col gap-[6px] border-b border-[#dcdcdc] py-[18px] sm:flex-row sm:gap-[24px]">
                   <dt className="w-[170px] shrink-0 text-muted">Phone</dt>
-                  <dd className="text-muted-soft">{site.phone}</dd>
+                  <dd>
+                    <a href={`tel:${site.phoneHref}`} className="transition-colors hover:text-muted">
+                      {site.phone}
+                    </a>
+                  </dd>
+                </div>
+                <div className="flex flex-col gap-[6px] border-b border-[#dcdcdc] py-[18px] sm:flex-row sm:gap-[24px]">
+                  <dt className="w-[170px] shrink-0 text-muted">GSTIN</dt>
+                  <dd className="tabular-nums">{site.gstin}</dd>
                 </div>
                 <div className="flex flex-col gap-[6px] border-b border-[#dcdcdc] py-[18px] sm:flex-row sm:gap-[24px]">
                   <dt className="w-[170px] shrink-0 text-muted">Email</dt>
@@ -86,8 +104,7 @@ export default function Contact() {
               {/* Honest placeholder rather than a fabricated address or map. */}
               <div className="mt-[30px] max-w-[560px] border-l-2 border-[#cfcfcf] pl-[24px]">
                 <p className="text-[17px] leading-[1.45] text-muted">
-                  Contact details are being confirmed. Once supplied we will publish the office
-                  address, phone numbers, enquiry email and a location map here:
+                  Still to be confirmed before launch:
                 </p>
                 <ul className="mt-[14px] flex flex-wrap gap-[8px]">
                   {pending.map((item) => (

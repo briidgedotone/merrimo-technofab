@@ -15,14 +15,18 @@ export const site = {
   description:
     "Merrimo Technofab Private Limited is a professionally managed industrial MEP, fabrication and installation solutions provider, delivering integrated Civil, Mechanical, Electrical, Plumbing, HVAC, Fabrication, PEB and Interior works for industrial and commercial projects.",
 
-  // TODO(client): confirm office address, phone and email before launch.
+  // Address, phone and GSTIN confirmed from the company's GST invoice.
+  // TODO(client): enquiry email address still outstanding.
   address: {
-    street: "Office address to be confirmed",
-    city: "Service locations to be confirmed",
+    street: "Shop 7, White Orchid, Gaur City 2,",
+    city: "Sector 16C, Greater Noida West,",
+    region: "Gautam Buddha Nagar, Uttar Pradesh",
   },
-  phone: "Phone to be confirmed",
-  phoneHref: "",
+  phone: "+91 96505 39817",
+  phoneHref: "+919650539817",
   email: "Email to be confirmed",
+  gstin: "09AANCM7538B1Z8",
+  stateCode: "09",
 
   social: [] as { label: string; href: string }[],
 
