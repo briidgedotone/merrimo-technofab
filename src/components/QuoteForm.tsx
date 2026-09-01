@@ -4,12 +4,14 @@ import { useState } from "react";
 import { ArrowUpRight } from "./ui/Icons";
 
 /**
- * Set NEXT_PUBLIC_FORM_ENDPOINT to a form service (Formspree, Basin, a Worker,
- * an inbox route) to start receiving enquiries. Until it is set the form is
- * fully usable but submitting reports that routing is not connected, so no
- * enquiry is ever silently swallowed.
+ * Submissions go to Web3Forms, which relays them to the company inbox.
+ * The access key is public by design — it only permits delivery to the
+ * address it was issued for — and lives in a repo variable so it can be
+ * rotated without a code change. Without it the form still works but
+ * reports that routing is not connected, so nothing is silently swallowed.
  */
-const ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT ?? "";
+const ENDPOINT = "https://api.web3forms.com/submit";
+const ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? "";
 
 type Status = "idle" | "sending" | "sent" | "error" | "unconfigured";
 
@@ -36,12 +38,28 @@ export default function QuoteForm({ source }: { source: string }) {
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
-    const payload = { ...Object.fromEntries(new FormData(form).entries()), source };
+    const data = Object.fromEntries(new FormData(form).entries());
 
-    if (!ENDPOINT) {
+    if (!ACCESS_KEY) {
       setStatus("unconfigured");
       return;
     }
+
+    // Honeypot: a bot that fills the hidden field gets a silent success.
+    if (String(data.botcheck ?? "")) {
+      setStatus("sent");
+      form.reset();
+      return;
+    }
+
+    const payload = {
+      ...data,
+      access_key: ACCESS_KEY,
+      source,
+      subject: `Website enquiry from ${data.name || "a visitor"}${data.company ? ` (${data.company})` : ""}`,
+      from_name: "Merrimo Technofab website",
+      replyto: data.email,
+    };
 
     setStatus("sending");
     try {
@@ -63,6 +81,15 @@ export default function QuoteForm({ source }: { source: string }) {
       onSubmit={onSubmit}
       className="w-full max-w-[560px] rounded-[20px] border border-white/12 bg-[#101021] p-[26px] shadow-[0_24px_60px_-30px_rgba(0,0,0,0.6)] sm:p-[30px]"
     >
+      <input
+        type="checkbox"
+        name="botcheck"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="hidden"
+      />
+
       <p className="text-[14px] text-white/50">
         Fields marked <span aria-hidden>*</span> are required.
       </p>
@@ -164,7 +191,7 @@ export default function QuoteForm({ source }: { source: string }) {
         {status === "sent" && "Thanks — we’ve got your enquiry and will be in touch shortly."}
         {status === "error" && "Something went wrong sending that. Please try again."}
         {status === "unconfigured" &&
-          "This form isn’t connected to an inbox yet, so nothing was sent. Set NEXT_PUBLIC_FORM_ENDPOINT to start receiving enquiries."}
+          "This form isn’t connected to an inbox yet, so nothing was sent. Set NEXT_PUBLIC_WEB3FORMS_KEY to start receiving enquiries."}
       </p>
     </form>
   );

@@ -30,7 +30,7 @@ jobs:
       - name: Build static export
         env:
           # Served from the root of merrimotechnofab.com, so no basePath.
-          NEXT_PUBLIC_FORM_ENDPOINT: ${{ vars.NEXT_PUBLIC_FORM_ENDPOINT }}
+          NEXT_PUBLIC_WEB3FORMS_KEY: ${{ vars.NEXT_PUBLIC_WEB3FORMS_KEY }}
         run: npm run build
 
       - uses: actions/configure-pages@v5
