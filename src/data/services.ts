@@ -51,8 +51,8 @@ export const services: Service[] = [
         ],
       },
     ],
-    image: "/images/sector-civil.jpg",
-    alt: "Reinforced concrete formwork and structural civil works on an industrial site.",
+    image: "/images/svc-civil.webp",
+    alt: "Tower cranes over an industrial construction site at dusk.",
   },
 
   {
@@ -64,8 +64,8 @@ export const services: Service[] = [
       "Complete Mechanical, Electrical & Plumbing (MEP) solutions for industrial facilities, factories, warehouses and commercial buildings — coordinated as one scope so services are planned, routed and commissioned together rather than trade by trade.",
     groups: [],
     children: ["mechanical", "electrical", "plumbing-water", "hvac-ducting"],
-    image: "/images/sector-warehouse.jpg",
-    alt: "Interior of a completed steel-framed warehouse with services running at high level.",
+    image: "/images/svc-mep.webp",
+    alt: "Industrial plant with pipe bridges, ducting and process equipment.",
   },
 
   {
@@ -77,8 +77,8 @@ export const services: Service[] = [
       "Industrial mechanical installation, equipment support, piping-related works, ducting and mechanical system installation.",
     groups: [],
     needsContent: true,
-    image: "/images/sector-shed.jpg",
-    alt: "Interior of a large industrial shed with an arched steel roof structure.",
+    image: "/images/svc-mechanical.webp",
+    alt: "Large-bore mechanical pipework with couplings, valves and gauges.",
   },
 
   {
@@ -121,8 +121,8 @@ export const services: Service[] = [
         ],
       },
     ],
-    image: "/images/sector-sitework.jpg",
-    alt: "Industrial site development works under way.",
+    image: "/images/svc-electrical.webp",
+    alt: "High-voltage substation with gantries and transmission lines.",
   },
 
   {
@@ -188,8 +188,8 @@ export const services: Service[] = [
         ],
       },
     ],
-    image: "/images/sector-warehouse.jpg",
-    alt: "Interior of a completed steel-framed warehouse.",
+    image: "/images/svc-plumbing.webp",
+    alt: "An engineer inspecting large-diameter water pipework and valves in a plant room.",
   },
 
   {
@@ -232,8 +232,8 @@ export const services: Service[] = [
         ],
       },
     ],
-    image: "/images/sector-sitework.jpg",
-    alt: "Site drainage and utility development works.",
+    image: "/images/svc-rainwater.webp",
+    alt: "Aerial view of a water treatment and settlement pond installation.",
   },
 
   {
@@ -245,8 +245,8 @@ export const services: Service[] = [
       "HVAC duct fabrication and installation, ventilation, exhaust ducting, duct supports and air distribution systems.",
     groups: [],
     needsContent: true,
-    image: "/images/sector-shed.jpg",
-    alt: "Ventilated industrial shed interior.",
+    image: "/images/svc-hvac.webp",
+    alt: "Rooftop air-handling units and exhaust ducting.",
   },
 
   {
@@ -273,8 +273,8 @@ export const services: Service[] = [
     ],
     applications:
       "Industrial sheds, factories, warehouses, workshops, manufacturing units, storage buildings, structural steel projects.",
-    image: "/images/sector-peb.jpg",
-    alt: "Structural steel frame being erected against an open sky.",
+    image: "/images/svc-fabrication.webp",
+    alt: "Steel-framed industrial hall with overhead crane rails.",
   },
 
   {
@@ -301,8 +301,8 @@ export const services: Service[] = [
     ],
     applications:
       "Industrial sheds, factories, warehouses, workshops, manufacturing units, storage buildings, structural steel projects.",
-    image: "/images/sector-peb.jpg",
-    alt: "Pre-engineered building frame under erection.",
+    image: "/images/svc-fabrication.webp",
+    alt: "Pre-engineered steel building interior with portal frames and crane rails.",
   },
 
   {
@@ -314,8 +314,8 @@ export const services: Service[] = [
       "Complete site installation, erection, fabrication, equipment support and project execution services.",
     groups: [],
     needsContent: true,
-    image: "/images/sector-sitework.jpg",
-    alt: "Cranes over an industrial site during erection works.",
+    image: "/images/svc-installation.webp",
+    alt: "Tower cranes erecting a multi-storey industrial structure.",
   },
 
   {
@@ -327,8 +327,8 @@ export const services: Service[] = [
       "Industrial and commercial interior works, including partitioning, ceilings, flooring, finishing and other associated interior requirements.",
     groups: [],
     needsContent: true,
-    image: "/images/sector-warehouse.jpg",
-    alt: "Interior of a completed industrial building.",
+    image: "/images/svc-interior.webp",
+    alt: "Fitted-out factory floor with machinery bays and marked circulation aisles.",
   },
 ];
 
