@@ -79,7 +79,7 @@ export default async function ServicePage({ params }: Params) {
         </PageHero>
 
         {/* Cover image */}
-        <div className="gc-container -mt-[48px]">
+        <div className="gc-container mt-[60px] lg:mt-[80px]">
           <div className="relative aspect-[1200/470] w-full overflow-hidden rounded-[14px]">
             <Image
               src={asset(service.image)}
