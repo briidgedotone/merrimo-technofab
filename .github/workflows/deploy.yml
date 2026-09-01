@@ -29,9 +29,7 @@ jobs:
 
       - name: Build static export
         env:
-          # Pages serves the site from /<repo>; drop this for a custom domain.
-          BASE_PATH: /merrimo-technofab
-          NEXT_PUBLIC_BASE_PATH: /merrimo-technofab
+          # Served from the root of merrimotechnofab.com, so no basePath.
           NEXT_PUBLIC_FORM_ENDPOINT: ${{ vars.NEXT_PUBLIC_FORM_ENDPOINT }}
         run: npm run build
 

@@ -9,7 +9,7 @@
 export const site = {
   name: "Merrimo Technofab",
   legalName: "Merrimo Technofab Private Limited",
-  url: "https://briidgedotone.github.io/merrimo-technofab",
+  url: "https://merrimotechnofab.com",
   tagline: "Your Trusted Partner for Complete Industrial Engineering Solutions.",
   supportingLine: "One Company. Multiple Engineering Solutions.",
   description:
