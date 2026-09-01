@@ -21,6 +21,7 @@ const jsonLd = {
       alternateName: site.name,
       url: site.url,
       description: site.description,
+      email: site.email,
       telephone: site.phone,
       vatID: site.gstin,
       address: {

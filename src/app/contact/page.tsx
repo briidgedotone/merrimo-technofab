@@ -15,9 +15,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 };
 
-
 // TODO(client): confirm these before launch — brief section 7, open items.
-const pending = ["Enquiry email address", "Service locations / states covered"];
+const pending = ["Service locations / states covered"];
 
 export default function Contact() {
   const jsonLd = {
@@ -29,6 +28,7 @@ export default function Contact() {
       "@type": "Organization",
       name: site.legalName,
       url: site.url,
+      email: site.email,
       telephone: site.phone,
       vatID: site.gstin,
       address: {
@@ -97,11 +97,14 @@ export default function Contact() {
                 </div>
                 <div className="flex flex-col gap-[6px] border-b border-[#dcdcdc] py-[18px] sm:flex-row sm:gap-[24px]">
                   <dt className="w-[170px] shrink-0 text-muted">Email</dt>
-                  <dd className="text-muted-soft">{site.email}</dd>
+                  <dd>
+                    <a href={`mailto:${site.email}`} className="transition-colors hover:text-muted">
+                      {site.email}
+                    </a>
+                  </dd>
                 </div>
               </dl>
 
-              {/* Honest placeholder rather than a fabricated address or map. */}
               <div className="mt-[30px] max-w-[560px] border-l-2 border-[#cfcfcf] pl-[24px]">
                 <p className="text-[17px] leading-[1.45] text-muted">
                   Still to be confirmed before launch:

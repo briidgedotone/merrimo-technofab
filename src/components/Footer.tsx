@@ -46,7 +46,14 @@ export default function Footer() {
               </div>
               <div>
                 <dt className="text-white">Email:</dt>
-                <dd className="mt-[8px] text-white/75">{site.email}</dd>
+                <dd className="mt-[8px]">
+                  <a
+                    href={`mailto:${site.email}`}
+                    className="text-white/75 transition-colors hover:text-white"
+                  >
+                    {site.email}
+                  </a>
+                </dd>
               </div>
             </dl>
           </div>
