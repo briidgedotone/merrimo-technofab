@@ -24,7 +24,7 @@ export default function PageHero({
     <section className="relative isolate w-full overflow-hidden bg-ink text-white on-photo">
       <Navbar />
 
-      <div className="gc-container pb-[96px] pt-[190px]">
+      <div className="gc-container pb-[70px] pt-[150px] md:pb-[96px] md:pt-[190px]">
         {crumbs.length > 0 && (
           <nav aria-label="Breadcrumb" className="mb-[26px]">
             <ol className="flex flex-wrap items-center gap-x-[10px] gap-y-[4px] text-[15px] text-white/50">

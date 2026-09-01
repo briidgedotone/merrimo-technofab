@@ -9,7 +9,7 @@ import { civil } from "@/data/site";
  */
 export default function Civil() {
   return (
-    <section id="civil" className="mt-[160px] bg-ink py-[110px] text-white on-photo">
+    <section id="civil" className="mt-[100px] bg-ink py-[76px] text-white on-photo lg:mt-[160px] lg:py-[110px]">
       <div className="gc-container">
         <p className="flex items-center gap-[9px] text-[16px] text-white/60">
           <span aria-hidden className="h-[5px] w-[5px] rounded-full bg-white/60" />

@@ -11,7 +11,7 @@ export default function Hero() {
 
       {/* 1200 × 720 in the reference — a 5:3 plate, floored so the
           composition never collapses on short viewports. */}
-      <div className="relative aspect-[5/3] min-h-[560px] w-full sm:min-h-0">
+      <div className="relative aspect-[5/3] min-h-[88svh] w-full sm:min-h-[560px] md:min-h-0">
         <HeroBackground alt="Footage of Merrimo Technofab's work: industrial site development, a steel fabrication yard, a pre-engineered building frame, structural erection and completed industrial facilities." />
         {/* Legibility scrims. The footage is busier and higher-contrast than a
             still, so this is a flat wash plus directional gradients for the
@@ -42,7 +42,7 @@ export default function Hero() {
               </h1>
 
               {/* Feature list — bottom-left column of frosted rows. */}
-              <ul className="mt-[52px] w-full max-w-[500px] space-y-[31px]">
+              <ul className="mt-[34px] w-full max-w-[500px] space-y-[22px] sm:space-y-[31px] lg:mt-[52px]">
                 {heroFeatures.map((f) => {
                   const Icon = heroIcons[f.icon];
                   return (

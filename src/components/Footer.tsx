@@ -10,7 +10,7 @@ export default function Footer() {
   const [done, setDone] = useState(false);
 
   return (
-    <footer id="contacts" className="mt-[254px] bg-ink text-white">
+    <footer id="contacts" className="mt-[140px] bg-ink text-white lg:mt-[254px]">
       <div className="gc-container pb-[37px] pt-[37px]">
         <div className="grid grid-cols-1 gap-y-[48px] md:grid-cols-2 lg:grid-cols-[455px_322px_1fr]">
           {/* contact column */}
@@ -93,7 +93,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-[176px] flex flex-wrap items-end justify-between gap-[24px]">
+        <div className="mt-[80px] flex flex-wrap items-end justify-between gap-[24px] lg:mt-[176px]">
           <p className="text-[22px] font-medium tracking-[-0.02em]">{site.legalName}</p>
           {site.social.length > 0 && (
             <ul className="flex flex-wrap items-center gap-x-[36px] gap-y-[10px] text-[16px]">

@@ -13,7 +13,7 @@ export default function Faq() {
   const [open, setOpen] = useState<string | null>("Do you handle civil works as well as MEP?");
 
   return (
-    <section id="faq" className="gc-container pt-[129px]">
+    <section id="faq" className="gc-container pt-[90px] lg:pt-[129px]">
       <SectionHeading lead="Got any questions?" trail="We’ve got answers" />
 
       <div className="mt-[60px] grid grid-cols-1 items-start gap-x-[27px] gap-y-[20px] md:grid-cols-2">
@@ -56,7 +56,7 @@ function FaqItem({
           aria-expanded={open}
           aria-controls={`${id}-panel`}
           id={`${id}-button`}
-          className="flex min-h-[94px] w-full cursor-pointer items-center justify-between gap-[20px] px-[38px] py-[20px] text-left"
+          className="flex min-h-[86px] w-full cursor-pointer items-center justify-between gap-[16px] px-[24px] py-[20px] text-left lg:min-h-[94px] lg:gap-[20px] lg:px-[38px]"
         >
           <span className="text-[19px] font-medium leading-[1.25] tracking-[-0.02em]">{question}</span>
           <span aria-hidden className="relative h-[16px] w-[16px] shrink-0">
@@ -78,7 +78,7 @@ function FaqItem({
         }`}
       >
         <div className="overflow-hidden">
-          <p className="max-w-[510px] px-[38px] pb-[40px] pt-[30px] text-[17px] leading-[1.32] text-muted-soft">{answer}</p>
+          <p className="max-w-[510px] px-[24px] pb-[32px] pt-[22px] text-[17px] leading-[1.32] text-muted-soft lg:px-[38px] lg:pb-[40px] lg:pt-[30px]">{answer}</p>
         </div>
       </div>
     </div>

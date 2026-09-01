@@ -23,14 +23,20 @@ export default function HowItWorks() {
 
   const [leadPad, setLeadPad] = useState(GUTTER + LEAD_INSET);
   const [distance, setDistance] = useState(0);
+  const [wide, setWide] = useState(true);
   const [index, setIndex] = useState(0);
 
   // The row travels left by exactly the amount that overflows the viewport.
+  // The decorative lead inset is a desktop device only — on a phone it would
+  // push the first card most of the way off screen.
   const measure = useCallback(() => {
     const vw = window.innerWidth;
-    const pad = Math.max(0, (vw - CONTAINER) / 2) + GUTTER + LEAD_INSET;
+    const isWide = vw >= 1024;
+    setWide(isWide);
+    const pad = isWide ? Math.max(0, (vw - CONTAINER) / 2) + GUTTER + LEAD_INSET : GUTTER;
     setLeadPad(pad);
-    const rowWidth = pad + steps.length * CARD_W + (steps.length - 1) * GAP + GUTTER;
+    const cardW = Math.min(CARD_W, vw * 0.8);
+    const rowWidth = pad + steps.length * cardW + (steps.length - 1) * GAP + GUTTER;
     setDistance(Math.max(0, rowWidth - vw));
   }, []);
 
@@ -69,11 +75,11 @@ export default function HowItWorks() {
   };
 
   return (
-    <section id="how-it-works" className="pt-[160px]">
+    <section id="how-it-works" className="pt-[100px] lg:pt-[160px]">
       {/* Two extra viewports of scroll drive the horizontal travel; the section
           stays pinned until the last card has come through, then releases. */}
-      <div ref={track} className="relative h-[260vh]">
-        <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
+      <div ref={track} className="relative h-[200svh] lg:h-[260svh]">
+        <div className="sticky top-0 flex h-[100svh] flex-col justify-center overflow-hidden">
           <div className="gc-container flex items-start justify-between gap-[24px]">
             <SectionHeading lead="How we work" trail="(Step-by-step)" />
             <div className="hidden shrink-0 pt-[15px] md:block">
@@ -90,13 +96,15 @@ export default function HowItWorks() {
           <motion.div
             ref={row}
             style={{ x, paddingLeft: leadPad }}
-            className="mt-[67px] flex items-end gap-[19px] pr-[25px]"
+            className="mt-[40px] flex items-end gap-[19px] pr-[25px] lg:mt-[67px]"
             role="group"
             aria-label="Project execution, step by step"
           >
             {steps.map((step, i) => {
               const Icon = stepIcons[step.icon];
-              const height = 305 + Math.min(i, 3) * 23;
+              // The staggered heights are a desktop flourish; on a phone the
+              // same values leave most of each card empty.
+              const height = wide ? 305 + Math.min(i, 3) * 23 : 236 + Math.min(i, 3) * 12;
               return (
                 <article
                   key={step.number}
@@ -120,7 +128,7 @@ export default function HowItWorks() {
 
           {/* Progress rail — full-bleed line with the active step pinned above
               the active card and the remaining steps grouped to the right. */}
-          <div className="relative mt-[60px] h-[60px]">
+          <div className="relative mt-[40px] h-[60px] lg:mt-[60px]">
             <div aria-hidden className="absolute inset-x-0 top-1/2 h-[6px] -translate-y-1/2 bg-line" />
             <div className="gc-container relative h-full">
               <div className="absolute left-[25px] top-0 h-[60px] lg:left-[296px]">

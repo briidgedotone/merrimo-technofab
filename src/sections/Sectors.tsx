@@ -47,7 +47,7 @@ export default function Sectors() {
   };
 
   return (
-    <section id="sectors" className="pt-[130px]">
+    <section id="sectors" className="pt-[90px] lg:pt-[130px]">
       <div className="gc-container flex items-start justify-between gap-[24px]">
         <SectionHeading lead="Built for" trail="Industrial Sites" />
         <div className="hidden shrink-0 pt-[10px] md:block">
@@ -61,7 +61,7 @@ export default function Sectors() {
         </div>
       </div>
 
-      <div className="gc-container mt-[73px]">
+      <div className="gc-container mt-[44px] lg:mt-[73px]">
         <div
           ref={trackRef}
           onScroll={onScroll}
