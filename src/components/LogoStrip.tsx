@@ -24,14 +24,9 @@ export default function LogoStrip() {
   const row = Array.from({ length: COPIES }, () => clientLogos).flat();
 
   return (
-    <section aria-labelledby="clients-heading" className="overflow-hidden pt-[70px] lg:pt-[96px]">
-      <h2 id="clients-heading" className="gc-container text-[16px] text-muted">
-        <span aria-hidden className="mr-[9px] inline-block h-[5px] w-[5px] rounded-full bg-muted align-middle" />
-        Trusted by teams at
-      </h2>
-
+    <section aria-label="Clients we have worked with" className="overflow-hidden pt-[70px] lg:pt-[96px]">
       {/* Masked at both ends so logos fade in and out rather than clipping. */}
-      <div className="relative mt-[24px] [mask-image:linear-gradient(90deg,transparent,#000_9%,#000_91%,transparent)]">
+      <div className="relative [mask-image:linear-gradient(90deg,transparent,#000_9%,#000_91%,transparent)]">
         <ul className="gc-marquee flex w-max items-center">
           {row.map((logo, i) => (
             <li
