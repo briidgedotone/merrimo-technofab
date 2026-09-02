@@ -42,6 +42,20 @@ export const site = {
   ],
 } as const;
 
+/**
+ * Clients we have worked with, shown as a looping logo strip under the hero.
+ * Intrinsic sizes are the asset dimensions; the strip renders them at half,
+ * which is where the per-logo optical balancing was set.
+ */
+export const clientLogos = [
+  { name: "Bureau Veritas", src: "/logos/bureau-veritas.png", w: 125, h: 160 },
+  { name: "Donaldson Filtration Solutions", src: "/logos/donaldson.png", w: 520, h: 123 },
+  { name: "Jubilant FoodWorks", src: "/logos/jubilant.png", w: 285, h: 180 },
+  { name: "LG", src: "/logos/lg.png", w: 351, h: 156 },
+  { name: "Materials Magic", src: "/logos/materials-magic.png", w: 150, h: 176 },
+  { name: "Teva", src: "/logos/teva.png", w: 354, h: 124 },
+];
+
 export const heroFeatures = [
   {
     icon: "foundation" as const,

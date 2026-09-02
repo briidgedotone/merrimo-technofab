@@ -87,6 +87,25 @@
     letter-spacing: -0.024em;
   }
 
+
+  /* Client logo strip: the row is duplicated, so shifting by half its width
+     puts the second copy exactly where the first started — a seamless loop. */
+  .gc-marquee {
+    animation: gc-marquee-scroll 46s linear infinite;
+  }
+  .gc-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes gc-marquee-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
   .gc-hide-scrollbar {
     scrollbar-width: none;
     -ms-overflow-style: none;

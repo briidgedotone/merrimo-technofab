@@ -1,5 +1,6 @@
 import Script from "next/script";
 import Hero from "@/sections/Hero";
+import LogoStrip from "@/components/LogoStrip";
 import TrustStatement from "@/sections/TrustStatement";
 import Solutions from "@/sections/Solutions";
 import Civil from "@/sections/Civil";
@@ -53,6 +54,7 @@ export default function Home() {
       />
       <main id="main">
         <Hero />
+        <LogoStrip />
         <TrustStatement />
         <Solutions />
         <Civil />
