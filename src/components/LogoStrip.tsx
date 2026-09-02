@@ -11,11 +11,17 @@ import { asset } from "@/lib/asset";
  * dimensions. Under prefers-reduced-motion the animation is disabled globally,
  * leaving a static row that is still scrollable.
  */
+/** Divisor applied to the intrinsic asset size. The assets are optically
+    balanced against each other, so one number sets the whole strip. */
+const SCALE = 3.2;
+
+/** The row is duplicated and translated -50%, so the travel is half the copies.
+    Enough copies are needed that half the row exceeds the widest viewport,
+    otherwise a gap appears at the loop point. */
+const COPIES = 8;
+
 export default function LogoStrip() {
-  // Four copies, translated by -50% (i.e. two copies). One copy is only
-  // ~1450px, so a two-copy travel is needed to cover wide screens without a
-  // gap appearing at the loop point.
-  const row = [...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos];
+  const row = Array.from({ length: COPIES }, () => clientLogos).flat();
 
   return (
     <section aria-labelledby="clients-heading" className="overflow-hidden pt-[70px] lg:pt-[96px]">
@@ -25,21 +31,21 @@ export default function LogoStrip() {
       </h2>
 
       {/* Masked at both ends so logos fade in and out rather than clipping. */}
-      <div className="relative mt-[30px] [mask-image:linear-gradient(90deg,transparent,#000_9%,#000_91%,transparent)]">
+      <div className="relative mt-[24px] [mask-image:linear-gradient(90deg,transparent,#000_9%,#000_91%,transparent)]">
         <ul className="gc-marquee flex w-max items-center">
           {row.map((logo, i) => (
             <li
               key={`${logo.name}-${i}`}
-              className="flex shrink-0 items-center justify-center px-[34px] sm:px-[46px]"
+              className="flex shrink-0 items-center justify-center px-[26px] sm:px-[36px]"
               aria-hidden={i >= clientLogos.length}
             >
               <Image
                 src={asset(logo.src)}
                 alt={i < clientLogos.length ? logo.name : ""}
-                width={Math.round(logo.w / 2)}
-                height={Math.round(logo.h / 2)}
+                width={Math.round(logo.w / SCALE)}
+                height={Math.round(logo.h / SCALE)}
                 className="h-auto w-auto opacity-70 transition-opacity duration-300"
-                style={{ maxHeight: Math.round(logo.h / 2) }}
+                style={{ maxHeight: Math.round(logo.h / SCALE) }}
               />
             </li>
           ))}
