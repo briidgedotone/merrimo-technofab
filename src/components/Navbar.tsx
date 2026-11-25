@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
+import { asset } from "@/lib/asset";
 import { useEffect, useRef, useState } from "react";
 import { site } from "@/data/site";
 import { ArrowUpRight, MenuGlyph } from "./ui/Icons";
@@ -88,9 +90,17 @@ export default function Navbar() {
 
           <Link
             href="/"
-            className="text-[16px] font-medium tracking-[-0.01em] text-white/85 transition-colors hover:text-white"
+            aria-label={`${site.name} home`}
+            className="opacity-90 transition-opacity hover:opacity-100"
           >
-            {site.name}
+            <Image
+              src={asset("/logo-white.png")}
+              alt={site.name}
+              width={1826}
+              height={369}
+              priority
+              className="h-[28px] w-auto md:h-[34px]"
+            />
           </Link>
 
           <Link
