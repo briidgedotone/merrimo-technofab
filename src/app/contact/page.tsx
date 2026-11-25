@@ -28,6 +28,7 @@ export default function Contact() {
       "@type": "Organization",
       name: site.legalName,
       url: site.url,
+      logo: `${site.url}/logo.png`,
       email: site.email,
       telephone: site.phone,
       vatID: site.gstin,

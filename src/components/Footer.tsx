@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
+import { asset } from "@/lib/asset";
 import { useState } from "react";
 import { site } from "@/data/site";
 import { ArrowUpRight } from "./ui/Icons";
@@ -114,7 +116,18 @@ export default function Footer() {
         </div>
 
         <div className="mt-[80px] flex flex-wrap items-end justify-between gap-[24px] lg:mt-[176px]">
-          <p className="text-[22px] font-medium tracking-[-0.02em]">{site.legalName}</p>
+          <div>
+            <Link href="/" aria-label={`${site.name} home`} className="inline-block">
+              <Image
+                src={asset("/logo-white.png")}
+                alt={site.name}
+                width={1826}
+                height={369}
+                className="h-[44px] w-auto md:h-[56px]"
+              />
+            </Link>
+            <p className="mt-[14px] text-[15px] text-white/60">{site.legalName}</p>
+          </div>
           {site.social.length > 0 && (
             <ul className="flex flex-wrap items-center gap-x-[36px] gap-y-[10px] text-[16px]">
               {site.social.map((s: { label: string; href: string }) => (
